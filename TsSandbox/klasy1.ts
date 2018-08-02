@@ -1,7 +1,8 @@
 class Person1{
-    protected name: string; 
-    //protected ochrania zmienną tj. ta zmienna może być używana w klasach, które dziedziczą,
-    // ale raz nadane imię nie może być zmienione
+    public name: string; 
+    //dodanie public jest równoznaczne z nie używaniem modyfikatorów dostępu,
+    // public jest nadawany domyślnie. w age: number poniżej "public" zostało
+    // dodane domyślnie pomimo że tego nie widzimy
     age: number;
     constructor(name: string, age: number){
         this.name = name;
