@@ -8,11 +8,23 @@ class Customer2{
     }
 
     welcome(){
-        console.log(`Hello ${this.name}, ${this.age}`)
+        return `Hello ${this.name}, ${this.age}`
+    }
+
+    isAdult(){
+        if(this.age >= 18){
+            return true
+        } else{
+            return false
+        }
     }
 }
 let customerek2 = new Customer2("Ola", 22);   
 
-console.log(customerek2);
 
-customerek2.welcome()  //wywołanie  metody welcome (zadeklarowanej w klasie Customer2) na podstawie danych z cystomerek2
+console.log(customerek2.welcome())  
+//wywołanie  metody welcome (zadeklarowanej w klasie Customer2) na podstawie danych z cystomerek2
+
+console.log(customerek2.isAdult())  
+console.log(new Customer2('Halina', 15).isAdult())  
+
