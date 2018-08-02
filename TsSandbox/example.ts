@@ -1,4 +1,5 @@
-import { Customer } from './customer';
-let theJan = new Customer("Jan", 55, "Agnieszka")
+import { Customer } from './customer'
 
-console.log(theJan)
+let theJan = new Customer("Jan", 55, "Agnieszka");
+
+console.log(theJan);
