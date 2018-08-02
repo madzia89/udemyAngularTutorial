@@ -1,40 +1,7 @@
-interface canTalk {
-    talk(): string
-}// każda metoda która implementuje ten interface musi posiadać metodę talk
-
-class Person1 implements canTalk{
-    constructor(public name: string, public age: number){
-    }
-
-    welcome(){
-        return `Hello ${this.name}, ${this.age}`
-    }
-
-    isAdult() {
-        if (this.age >=18){
-            return true
-        } else {
-            return false
-        }
-    }
-
-    talk(){
-        return "talk"
-    }
-}
-
-class Customer4 extends Person1{
-    constructor(name: string, age: number, private advisor: string){
-        super(name, age) 
-    }
-
-    welcome(){
-        return `Good morning ${this.name}`
-    }
-}
-
-let klient = new Customer4('Wojtech', 35, 'Agata')
-
-klient.name = "Wojtas"
-console.log(klient.welcome())
-
+let imiona: string[] = ['Anna', 'Joanna', 'Hanna', 'Marzanna']
+let imiona2: Array<string> = ['Anna', 'Joanna', 'Hanna', 'Marzanna']
+//drugi zapis Array<string> oznacza że przypisujemy tablice o typowym parametrze "string"
+// w tych nawiasach <> przechowujemy type elementów podanych w tablicy
+// w ten sposób niemożliwe jest przypisanie liczby jako element tej tablicy
+// Array jest tutaj elementem generycznym i do tego elementu generycznego
+// przypisywaney jest element typowy w tym wypadku są to stringi
