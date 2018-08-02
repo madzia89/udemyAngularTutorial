@@ -1,5 +1,8 @@
 class Person1{
-    name: string;
+    private name: string; 
+    // private określa, że raz zadeklarowanego imienia nie można już zmieniać
+    // uzycie private uniemożliwia odlowania się do name przez this 
+    // w klasach które dziedzicza po tej klasie
     age: number;
     constructor(name: string, age: number){
         this.name = name;
@@ -19,7 +22,7 @@ class Person1{
     }
 }
 
-class Customer4 extends Person{
+class Customer4 extends Person1{
     advisor: string;
 
     constructor(name: string, age: number, advisor: string){
