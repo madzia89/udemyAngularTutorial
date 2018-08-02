@@ -9,7 +9,7 @@ let xs: number[] = [1,2,3,4,5,6]; // === let xs: Array<number>
 let zs = [9,8,7, ... xs, 52]
 // console.log(zs)// wyświetli dane zs oraz elementy z xs
 
-function welcome(name: string, age?: number): string { 
+function welcome1(name: string, age?: number): string { 
     //znak zapytania przy age oznacza, że jest to argument który jest opcjonalny tj. może, ale nie musi się pojawić
     //po drugim dwukropku możemy wskazać co ma zwracać funkcja, tylko wtedy funkcja musi coś zwracać a nie być np. sam console.log
     return `Welcome ${name}`
@@ -26,3 +26,9 @@ function welcome3(...names: string[]): string {
   }
 
   console.log(welcome3('Magda', 'Iwonka', 'Wiola'))
+
+function welcome(name: string): string{
+    return `Welcome ${name}`
+}
+
+console.log(['Miłosz', 'Jan', 'Ola'].map(welcome))
