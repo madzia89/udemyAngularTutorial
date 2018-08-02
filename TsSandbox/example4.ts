@@ -11,11 +11,13 @@
 class Customer1{
     name: string;
     age: number;
-}
 
-let customerek = new Customer1();
-customerek.name = "Ola"
-customerek.age = 32
+    constructor(name: string, age: number){
+        this.name = name
+        this.age = age
+    }
+}
+let customerek = new Customer1("Ola", 22);   
 
 //obiekt utworzony przez new, 
 //przechouwje dane klasy, z której został utworzony
