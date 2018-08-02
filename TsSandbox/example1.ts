@@ -36,14 +36,28 @@ console.log(['Miłosz', 'Jan', 'Ola'].map(welcome))
 console.log(['Miłosz', 'Jan', 'Ola'].map(name=> `Welcome ${name}`))
 
 interface Customer {
-    name: string
+    name: string ;
+    address: Address; // to nam mówi, że adres musi być typu Address zadeklarowany poniżej
+}
+
+interface Address {
+    street: string;
+    city: string;
 }
 
 function anotherWelcomeFunction(customer: Customer): string {
-    return `Welcome ${customer.name}`
+    return `Welcome ${customer.name}, ${customer.address.street}`
 }
 // ta customer: Customer daje do zrozumienia typesCriptowi,
 // że podany przez użytkownika argument musi byc typu customer,
 // inaczej nie zadziała. 
 //Gdybyśmy chcieli dodać tutaj np. customer.dateBirth wówczas wyskoczyłby błąd,
 // ponieważ w interfejsie Customer nie ma DateOfBirth
+
+console.log(anotherWelcomeFunction({
+    name: "Miłosz",
+    address: {
+        street: 'Miłoszowska 5',
+        city: 'Warszawa'
+    }
+}))
