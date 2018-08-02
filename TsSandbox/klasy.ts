@@ -1,4 +1,4 @@
-class Person{
+class Person22{
     name: string;
     age: number;
     constructor(name: string, age: number){
@@ -22,7 +22,7 @@ class Person{
 //poniżej przykład dziedziczenia
 //oznacza że Customer3 ma wszystkie pola i metody klasy Person
 //może też posiadać a nawet powinna posiadać dodatkowe informacje
-class Customer3 extends Person{
+class Customer3 extends Person22{
     advisor: string;
 
     constructor(name: string, age: number, advisor: string){
@@ -45,7 +45,7 @@ console.log(new Customer3('Wojtech', 35, 'Agata').isAdult())
 //obiekty stworzone w Customer3 należą też do nadrzędnej klasy czyli w tym przypadku do Person
 //dletego też możemy zrobić tak:
 
-let rysiek: Person = new Customer3('Ryszard', 56, 'Anna') 
+let rysiek: Person22 = new Customer3('Ryszard', 56, 'Anna') 
 //oznacza to że zmienna stworzona z klasy Customer jest typu Person
 // i można tak zrobić pomimo że advisor nie zostało zadeklarowane tam
 // tylko w Customer3

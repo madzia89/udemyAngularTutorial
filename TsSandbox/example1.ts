@@ -35,7 +35,7 @@ console.log(['Miłosz', 'Jan', 'Ola'].map(welcome))
 //powyższy i poniższy zapis jest tym samym
 console.log(['Miłosz', 'Jan', 'Ola'].map(name=> `Welcome ${name}`))
 
-interface Customer {
+interface Customer22 {
     name: string ;
     address: Address; // to nam mówi, że adres musi być typu Address zadeklarowany poniżej
 }
@@ -45,7 +45,7 @@ interface Address {
     city: string;
 }
 
-function anotherWelcomeFunction(customer: Customer): string {
+function anotherWelcomeFunction(customer: Customer22): string {
     return `Welcome ${customer.name}, ${customer.address.street}`
 }
 // ta customer: Customer daje do zrozumienia typesCriptowi,
