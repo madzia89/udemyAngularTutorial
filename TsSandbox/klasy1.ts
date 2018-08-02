@@ -1,8 +1,7 @@
 class Person1{
-    private name: string; 
-    // private określa, że raz zadeklarowanego imienia nie można już zmieniać
-    // uzycie private uniemożliwia odlowania się do name przez this 
-    // w klasach które dziedzicza po tej klasie
+    protected name: string; 
+    //protected ochrania zmienną tj. ta zmienna może być używana w klasach, które dziedziczą,
+    // ale raz nadane imię nie może być zmienione
     age: number;
     constructor(name: string, age: number){
         this.name = name;
