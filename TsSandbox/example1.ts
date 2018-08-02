@@ -32,3 +32,18 @@ function welcome(name: string): string{
 }
 
 console.log(['Miłosz', 'Jan', 'Ola'].map(welcome))
+//powyższy i poniższy zapis jest tym samym
+console.log(['Miłosz', 'Jan', 'Ola'].map(name=> `Welcome ${name}`))
+
+interface Customer {
+    name: string
+}
+
+function anotherWelcomeFunction(customer: Customer): string {
+    return `Welcome ${customer.name}`
+}
+// ta customer: Customer daje do zrozumienia typesCriptowi,
+// że podany przez użytkownika argument musi byc typu customer,
+// inaczej nie zadziała. 
+//Gdybyśmy chcieli dodać tutaj np. customer.dateBirth wówczas wyskoczyłby błąd,
+// ponieważ w interfejsie Customer nie ma DateOfBirth
