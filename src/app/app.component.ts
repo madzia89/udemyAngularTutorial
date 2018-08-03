@@ -14,4 +14,7 @@ export class AppComponent {
   constructor(){
     
   }
+  changeIsActive(){
+    this.isActive = !this.isActive //przełączenie na przeciwną wartość (true/false)
+  }
 }
