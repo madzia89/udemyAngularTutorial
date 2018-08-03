@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Customer } from './model'
 
 @Component({
   selector: 'app-root',
@@ -6,9 +7,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  name: string = "Janusz Kowal"
+
+  customer: Customer = {
+    name: "Jan Kowalski",
+    photoUrl: '../assets/images/examplePicture.jpg',
+    age: 22,
+    description: "VIP",
+    address: {
+      street: "Złota",
+      houseNumber: 13,
+      city: "Warszawa"
+    }
+
+  }
+
   nameColor: string = 'blue'
-  photoUrl: string = "../assets/images/examplePicture.jpg"
   isActive: boolean = true
   //czy dobrze rozumiem, że to co jest powyżej to stan wg react??????
 

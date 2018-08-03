@@ -1,7 +1,11 @@
 
 
-<h1 [style.color] = 'nameColor' [class.isActive] = "isActive">{{name.toUpperCase()}}</h1>
-<img [src]='photoUrl'/>
+<h1 [style.color] = 'nameColor' [class.isActive] = "isActive">{{customer.name.toUpperCase()}}</h1>
+<img [src]='customer.photoUrl'/>
+<p>{{customer.description}}</p>
+<p>wiek: {{customer.age}}</p>
+<p>adres: {{customer.address.street}} {{customer.address.houseNumber}}, {{customer.address.city}}</p>
+
 
 <!-- <button (click)="changeIsActive()" type="button">przełącz</button> -->
 <!-- powyżej jest wywołanie funkcji na onClick (funkcja jest zadeklarowana w component.ts) -->
