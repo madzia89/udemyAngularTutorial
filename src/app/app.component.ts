@@ -7,10 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   name: string = "Janusz Kowal"
+  photoUrl: string = "../assets/images/examplePicture.jpg"
 
   constructor(){
-    setTimeout(()=> {
-        this.name = "Janko"
-    }, 3000)
+    
   }
 }
