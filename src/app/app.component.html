@@ -1,19 +1,23 @@
-
-<p>{{nameInput.value}}</p>
-<h1 [style.color] = 'nameColor' [class.isActive] = "isActive">{{customer.name.toUpperCase()}}</h1>
-<img [src]='customer.photoUrl'/>
-<p>{{customer.description}}</p>
-<p>wiek: {{customer.age}}</p>
-<p>adres: {{customer.address.street}} {{customer.address.houseNumber}}, {{customer.address.city}}</p>
-
-<button (click)="isActive = !isActive" type="button">przełącz</button>
-<button (click)="changeColor()" type="button">przełącz kolor</button>
-
-<br>
-
-<input type="text" [(ngModel)]="customer.name" [ngModelOptions]="{updateOn: 'blur'}"/>
-
-
-<input type="text" [value]="customer.name" (input)="customer.name = $event.target.value" />
-<!-- //ręczne property binding i event binding + przypisanie wartości z input do customer.name -->
-<input  #nameInput type="text" [value]="customer.name" (input)="customer.name = name.value" />
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h1 [style.color] = 'nameColor' [class.isActive] = "isActive">{{customer.name.toUpperCase()}}</h1>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-sm-6">
+            <p>{{customer.description}}</p>
+            <p>wiek: {{customer.age}}</p>
+            <p>adres: {{customer.address.street}} {{customer.address.houseNumber}}, {{customer.address.city}}</p>
+            <button class="btn btn-primary" (click)="isActive = !isActive" type="button">przełącz</button>
+            <button class="btn btn-primary"(click)="changeColor()" type="button">przełącz kolor</button>
+            <br>
+            <input type="text" [(ngModel)]="customer.name" [ngModelOptions]="{updateOn: 'blur'}"/>
+        </div>
+        <div class="col-sm-6">
+          <img [src]="customer.photoUrl"/>
+        </div>
+     </div>
+    </div>
+  </div>
+</div>
