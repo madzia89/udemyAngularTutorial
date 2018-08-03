@@ -1,4 +1,4 @@
-class Person{
+export class Person{
     constructor(protected name: string, private age: number){}
 
     welcome(): string {
@@ -13,4 +13,14 @@ export class Customer extends Person {
     welcome(): string {
         return `Hello from customer ${this.name}, advised by ${this.advisor}`
     }
+}
+
+export let persons = [
+    new Person('Agata', 22),
+    new Person('Ilona', 55),
+    new Person('Marta', 33)
+]
+
+export function welcome(){
+    console.log('hello!')
 }

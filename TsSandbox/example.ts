@@ -1,6 +1,7 @@
-import { Customer } from './customer'
-import { Observable } from 'rxjs'
-let theJan = new Customer("Jan", 55, "Agnieszka");
+import * as fromCustomer from './customer'
+
+let theJan = new fromCustomer.Customer("Jan", 55, "Agnieszka");
 
 console.log(theJan);
 
+fromCustomer.welcome()
