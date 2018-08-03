@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   name: string = "Janusz Kowal"
+  nameColor: string = 'blue'
   photoUrl: string = "../assets/images/examplePicture.jpg"
 
   constructor(){
