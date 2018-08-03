@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms'
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -9,6 +10,7 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule, //tutaj dodajemy moduły angularowe, które chcemy użyć w aplikacji
+    FormsModule
   ],
   providers: [], //services, które dodamy do naszej aplikacji
   bootstrap: [AppComponent] //główne komponenty które zostaną zaaplikowane w index.html
