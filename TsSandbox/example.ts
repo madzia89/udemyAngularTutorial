@@ -1,7 +1,15 @@
 import * as fromCustomer from './customer'
 
-let theJan = new fromCustomer.Customer("Jan", 55, "Agnieszka");
+const theJan = new fromCustomer.Person("Jan", 55)
+theJan.age=4
 
 console.log(theJan);
 
-fromCustomer.welcome()
+function test(x: number){
+    if(x>5){
+        let a= 5;
+        return a
+    }
+}
+
+console.log(test(8))
