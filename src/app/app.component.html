@@ -1,5 +1,8 @@
 <h1 [style.color] = 'nameColor' [class.isActive] = "isActive">{{name.toUpperCase()}}</h1>
 <img [src]='photoUrl'/>
 
-<button (click)="changeIsActive()" type="button">przełącz</button>
+<!-- <button (click)="changeIsActive()" type="button">przełącz</button> -->
 <!-- powyżej jest wywołanie funkcji na onClick (funkcja jest zadeklarowana w component.ts) -->
+<button (click)="isActive = !isActive" type="button">przełącz</button>
+
+<button (click)="changeColor()" type="button">przełącz kolor</button>
