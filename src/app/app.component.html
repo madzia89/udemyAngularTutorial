@@ -6,3 +6,7 @@
 <button (click)="isActive = !isActive" type="button">przełącz</button>
 
 <button (click)="changeColor()" type="button">przełącz kolor</button>
+
+<br>
+<input type='text' [value]='name' (input) = "name = $event.target.value"/> 
+<!-- przypisanie do zmiennej danych z inputa -->
