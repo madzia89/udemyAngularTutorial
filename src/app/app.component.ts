@@ -9,6 +9,7 @@ export class AppComponent {
   name: string = "Janusz Kowal"
   nameColor: string = 'blue'
   photoUrl: string = "../assets/images/examplePicture.jpg"
+  isActive: boolean = true
 
   constructor(){
     
