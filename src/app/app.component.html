@@ -1,16 +1,20 @@
 <div class="container">
   <div class="panel panel-default">
-    <div class="panel panel-default">
+    <div class="panel-body">
       <select [(ngModel)]="customer">
+        <option [ngValue]="bull">Wybierz klienta</option>
         <option *ngFor="let c of customers" [ngValue]="c">
           <!-- *ngFor towrzy opcję w select dla każdego customer z tablicy obiektów, ngValue przypisuje wartość do danej opcji.
-          Gdy wybrana zostanie opcja wówczas wartość danego klienta zostanie przypisana do wyświetlanego szablonu -->
+            Gdy wybrana zostanie opcja wówczas wartość danego klienta zostanie przypisana do wyświetlanego szablonu -->
           {{c.name}}
         </option>
-    </select>
+      </select>
     </div>
+  </div>
+  <div class="panel panel-defaul" *ngIf="customer">
+    <!-- ngIf pozwoli na wyświetlenie informacji o kliencie tylko jeżeli ten został wybrany -->
     <div class="panel-heading">
-      <h1 [style.color] = 'nameColor' [class.isActive] = "isActive">
+      <h1 [style.color]='nameColor' [class.isActive]="isActive">
         {{customer.name.toUpperCase()}}
         <ng-container [ngSwitch]="customer.type">
           <ng-container *ngSwitchCase="CustomerType.Standard">
@@ -31,30 +35,34 @@
     <div class="panel-body">
       <div class="row">
         <div class="col-sm-6">
-            <p>{{customer.description}}</p>
-            <p>wiek: {{customer.age}}</p>
-            <p>adres: {{customer.address.street}} {{customer.address.houseNumber}}, {{customer.address.city}}</p>
-            <ul>
-              <li *ngFor="let category of customer.categories">{{category}}</li>
-            </ul>
-            <button class="btn btn-primary" (click)="isActive = !isActive" type="button">przełącz</button>
-            <button class="btn btn-primary"(click)="changeColor()" type="button">przełącz kolor</button>
-            <br>
-            <input type="text" [(ngModel)]="customer.name" [ngModelOptions]="{updateOn: 'blur'}"/>
+          <p>{{customer.description}}</p>
+          <p>wiek: {{customer.age}}</p>
+          <p>adres: {{customer.address.street}} {{customer.address.houseNumber}}, {{customer.address.city}}</p>
+          <ul>
+            <li *ngFor="let category of customer.categories; let oddCategory=odd" [class.oddCategory]="oddCategory">
+              {{category}}
+            </li>
+          </ul>
+          <button class="btn btn-primary" (click)="isActive = !isActive" type="button">przełącz</button>
+          <button class="btn btn-primary" (click)="changeColor()" type="button">przełącz kolor</button>
+          <br>
+          <input type="text" [(ngModel)]="customer.name" [ngModelOptions]="{updateOn: 'blur'}" />
         </div>
         <div class="col-sm-4">
-          <div *ngIf="showPhoto; then photo else noPhoto"></div>
-            <ng-template #photo>
-              <img [src]="customer.photoUrl"/>
-            </ng-template>
+          <div *ngIf="showPhoto; then photo else noPhoto">
+          </div>
+          <ng-template #photo>
+            <img [src]="customer.photoUrl" />
+          </ng-template>
           <ng-template #noPhoto>
             <p>ukryte zdjęcie</p>
           </ng-template>
           <div classs="checkbox">
-            <label><input type="checkbox" [(ngModel)]="showPhoto">Poka zdjęcie</label>
+            <label>
+              <input type="checkbox" [(ngModel)]="showPhoto">Poka zdjęcie</label>
           </div>
         </div>
-     </div>
+      </div>
     </div>
   </div>
 </div>

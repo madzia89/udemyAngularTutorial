@@ -72,7 +72,8 @@ export class AppComponent {
     }
   ]
 
-  customer: Customer = this.customers[0]
+  customer: Customer = null 
+  //po załadowaniu strony żaden klient nie będzie dafaultowo wyświetlany
 
   nameColor: string = 'blue'
   isActive: boolean = true
