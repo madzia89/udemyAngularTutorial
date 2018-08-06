@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter, Output, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output, OnDestroy, OnChanges, SimpleChanges } from '@angular/core';
 import { Customer, CustomerType } from '../model';
 
 @Component({
@@ -6,7 +6,7 @@ import { Customer, CustomerType } from '../model';
   templateUrl: './customer-details.component.html',
   styleUrls: ['./customer-details.component.css']
 })
-export class CustomerDetailsComponent implements OnInit, OnDestroy {
+export class CustomerDetailsComponent implements OnInit, OnDestroy, OnChanges, SimpleChanges {
 
   @Input() customer: Customer
   @Output() shift = new EventEmitter<string>()
@@ -14,23 +14,28 @@ export class CustomerDetailsComponent implements OnInit, OnDestroy {
   nameColor: string = 'blue'
   isActive: boolean = true
   showPhoto: boolean = false
-
-  //output pozwala na bindowanie danych wzwyż tj do wyższego komponentu 
+  counter: number = 0
+  counterHandler: number
    
   CustomerType = CustomerType
 
   constructor() { }
 
   ngOnInit() {
-    //ta metoda dodawana jest automatycznie przy tworzeniu komponentu
-    //jest wywoływana podczas inicjalizacji komponentu (podczas załadowania)
     console.log('init')
-    //componentDidMount
+    // this.counterHandler = setInterval(()=>{this.counter++}, 1000)
+  }
+
+  ngOnChanges(changes: SimpleChanges): void{
+    if(!changes.customer.firstChange){
+      console.log(`change from ${changes.customer.previousValue.name} to ${changes.customer.currentValue.name}`)
+    }
+    //dzieki
   }
 
   ngOnDestroy(){
     console.log('exit')
-    //componentDidUnmount
+    // clearInterval(this.counterHandler)
   }
 
   changeColor() {
