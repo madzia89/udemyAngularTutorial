@@ -23,10 +23,11 @@ export class AppComponent {
 
   nameColor: string = 'blue'
   isActive: boolean = true
+  showPhoto: boolean = false
 
   constructor(){
-    
   }
+
   changeColor(){
     this.nameColor = this.nameColor === 'blue' ? 'red' : 'blue'
   }

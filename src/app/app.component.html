@@ -14,8 +14,11 @@
             <br>
             <input type="text" [(ngModel)]="customer.name" [ngModelOptions]="{updateOn: 'blur'}"/>
         </div>
-        <div class="col-sm-6">
-          <img [src]="customer.photoUrl"/>
+        <div class="col-sm-4">
+          <img *ngIf="showPhoto" [src]="customer.photoUrl"/>
+          <div classs="checkbox">
+            <label><input type="checkbox" [(ngModel)]="showPhoto">Poka zdjęcie</label>
+          </div>
         </div>
      </div>
     </div>
