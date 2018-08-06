@@ -26,6 +26,9 @@
             <p>{{customer.description}}</p>
             <p>wiek: {{customer.age}}</p>
             <p>adres: {{customer.address.street}} {{customer.address.houseNumber}}, {{customer.address.city}}</p>
+            <ul>
+              <li *ngFor="let category of customer.categories">{{category}}</li>
+            </ul>
             <button class="btn btn-primary" (click)="isActive = !isActive" type="button">przełącz</button>
             <button class="btn btn-primary"(click)="changeColor()" type="button">przełącz kolor</button>
             <br>

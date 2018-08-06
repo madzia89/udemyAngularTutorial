@@ -4,7 +4,8 @@ export interface Customer {
     description: string;
     age: number;
     address: Address;
-    type: CustomerType
+    type: CustomerType;
+    categories: string[]
 }
 
 export interface Address {

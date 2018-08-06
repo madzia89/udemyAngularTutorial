@@ -18,7 +18,12 @@ export class AppComponent {
       houseNumber: 13,
       city: "Warszawa"
     },
-    type: CustomerType.Premium
+    type: CustomerType.Premium,
+    categories: [
+      "zagraniczny",
+      "mikroprzedsiębiorstwo",
+      "duży obrót"
+    ]
   }
 
   nameColor: string = 'blue'
