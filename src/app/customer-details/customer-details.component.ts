@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output, OnDestroy } from '@angular/core';
 import { Customer, CustomerType } from '../model';
 
 @Component({
@@ -6,7 +6,7 @@ import { Customer, CustomerType } from '../model';
   templateUrl: './customer-details.component.html',
   styleUrls: ['./customer-details.component.css']
 })
-export class CustomerDetailsComponent implements OnInit {
+export class CustomerDetailsComponent implements OnInit, OnDestroy {
 
   @Input() customer: Customer
   @Output() shift = new EventEmitter<string>()
@@ -22,6 +22,15 @@ export class CustomerDetailsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    //ta metoda dodawana jest automatycznie przy tworzeniu komponentu
+    //jest wywoływana podczas inicjalizacji komponentu (podczas załadowania)
+    console.log('init')
+    //componentDidMount
+  }
+
+  ngOnDestroy(){
+    console.log('exit')
+    //componentDidUnmount
   }
 
   changeColor() {

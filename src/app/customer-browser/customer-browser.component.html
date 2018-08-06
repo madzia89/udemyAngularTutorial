@@ -3,12 +3,12 @@
     <select [(ngModel)]="customer">
       <option [ngValue]="null">Wybierz klienta</option>
       <option *ngFor="let c of customers" [ngValue]="c">
-        <!-- *ngFor towrzy opcję w select dla każdego customer z tablicy obiektów, ngValue przypisuje wartość do danej opcji.
-            Gdy wybrana zostanie opcja wówczas wartość danego klienta zostanie przypisana do wyświetlanego szablonu -->
-        {{c.name}}
+         {{c.name}}
       </option>
     </select>
   </div>
-  <app-customer-details [customer]="customer" (shift)="onShift($event)"></app-customer-details>
-  <!-- [customer]="customer" przykład property binding niezbędny do przekazania wartości do komponentu app-customer-details -->
+</div>
+
+<div *ngIf="customer">
+<app-customer-details [customer]="customer" (shift)="onShift($event)"></app-customer-details>
 </div>
