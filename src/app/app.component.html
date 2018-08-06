@@ -15,7 +15,16 @@
             <input type="text" [(ngModel)]="customer.name" [ngModelOptions]="{updateOn: 'blur'}"/>
         </div>
         <div class="col-sm-4">
-          <img *ngIf="showPhoto" [src]="customer.photoUrl"/>
+          <div *ngIf="showPhoto; then photo else noPhoto"></div>
+          <!-- powyżej najpierw ma się wyliczyć showPhoto, a później pokazać photo lub npPhoto w zależności od wyliczeń -->
+            <ng-template #photo>
+              <img [src]="customer.photoUrl"/>
+            </ng-template>
+          <ng-template #noPhoto>
+            <!-- #noPhoto -> przykład zmiennej szablonowej -->
+            <!-- dyrektywa ng-template nie dołącza od razu owiniętego w nim elementu do drzewa DOM -->
+            <p>ukryte zdjęcie</p>
+          </ng-template>
           <div classs="checkbox">
             <label><input type="checkbox" [(ngModel)]="showPhoto">Poka zdjęcie</label>
           </div>
