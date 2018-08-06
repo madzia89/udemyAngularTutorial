@@ -1,10 +1,18 @@
 <div class="container">
   <div class="panel panel-default">
+    <div class="panel panel-default">
+      <select [(ngModel)]="customer">
+        <option *ngFor="let c of customers" [ngValue]="c">
+          <!-- *ngFor towrzy opcję w select dla każdego customer z tablicy obiektów, ngValue przypisuje wartość do danej opcji.
+          Gdy wybrana zostanie opcja wówczas wartość danego klienta zostanie przypisana do wyświetlanego szablonu -->
+          {{c.name}}
+        </option>
+    </select>
+    </div>
     <div class="panel-heading">
       <h1 [style.color] = 'nameColor' [class.isActive] = "isActive">
         {{customer.name.toUpperCase()}}
         <ng-container [ngSwitch]="customer.type">
-          <!-- to co chcemy wyświetlić uzalezniamy od typu klienta dlatego przy ngSwitch dodaliśmy customer.type -->
           <ng-container *ngSwitchCase="CustomerType.Standard">
             *
           </ng-container>
@@ -36,13 +44,10 @@
         </div>
         <div class="col-sm-4">
           <div *ngIf="showPhoto; then photo else noPhoto"></div>
-          <!-- powyżej najpierw ma się wyliczyć showPhoto, a później pokazać photo lub npPhoto w zależności od wyliczeń -->
             <ng-template #photo>
               <img [src]="customer.photoUrl"/>
             </ng-template>
           <ng-template #noPhoto>
-            <!-- #noPhoto -> przykład zmiennej szablonowej -->
-            <!-- dyrektywa ng-template nie dołącza od razu owiniętego w nim elementu do drzewa DOM -->
             <p>ukryte zdjęcie</p>
           </ng-template>
           <div classs="checkbox">
