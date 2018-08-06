@@ -3,10 +3,12 @@ import { FormsModule } from '@angular/forms'
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { HighlightDirective } from './highlight.directive';
 
 @NgModule({
   declarations: [
-    AppComponent, //dodajemy tutaj wszystkie komponenty które dodajemy do aplikacji
+    AppComponent,
+    HighlightDirective, //dodajemy tutaj wszystkie komponenty które dodajemy do aplikacji
   ],
   imports: [
     BrowserModule, //tutaj dodajemy moduły angularowe, które chcemy użyć w aplikacji

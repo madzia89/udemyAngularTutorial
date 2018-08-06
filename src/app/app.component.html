@@ -2,7 +2,7 @@
   <div class="panel panel-default">
     <div class="panel-body">
       <select [(ngModel)]="customer">
-        <option [ngValue]="bull">Wybierz klienta</option>
+        <option [ngValue]="null">Wybierz klienta</option>
         <option *ngFor="let c of customers" [ngValue]="c">
           <!-- *ngFor towrzy opcję w select dla każdego customer z tablicy obiektów, ngValue przypisuje wartość do danej opcji.
             Gdy wybrana zostanie opcja wówczas wartość danego klienta zostanie przypisana do wyświetlanego szablonu -->
@@ -36,7 +36,7 @@
       <div class="row">
         <div class="col-sm-6">
           <p>{{customer.description}}</p>
-          <p>wiek: {{customer.age}}</p>
+          <p appHighlight>wiek: {{customer.age}}</p>
           <p>adres: {{customer.address.street}} {{customer.address.houseNumber}}, {{customer.address.city}}</p>
           <ul>
             <li *ngFor="let category of customer.categories; let oddCategory=odd" [class.oddCategory]="oddCategory">
