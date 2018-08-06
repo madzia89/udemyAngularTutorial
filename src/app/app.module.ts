@@ -4,11 +4,15 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HighlightDirective } from './highlight.directive';
+import { CustomerBrowserComponent } from './customer-browser/customer-browser.component';
+import { CustomerDetailsComponent } from './customer-details/customer-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HighlightDirective, //dodajemy tutaj wszystkie komponenty które dodajemy do aplikacji
+    HighlightDirective,
+    CustomerBrowserComponent,
+    CustomerDetailsComponent, //dodajemy tutaj wszystkie komponenty które dodajemy do aplikacji
   ],
   imports: [
     BrowserModule, //tutaj dodajemy moduły angularowe, które chcemy użyć w aplikacji
