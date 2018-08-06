@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { CustomerType, Customer } from '../model';
+import { CustomerDetailsComponent } from '../customer-details/customer-details.component';
 
 @Component({
   selector: 'app-customer-browser',
@@ -7,7 +8,11 @@ import { CustomerType, Customer } from '../model';
   styleUrls: ['./customer-browser.component.css']
 })
 export class CustomerBrowserComponent implements OnInit {
-  
+  @ViewChild('details') detailsComponent: CustomerDetailsComponent
+  //w środku viewChild jest nazwa zmiennej szablonowej do której chcemy sie odnieść
+  //detailsComponent jest typu CustomerDetailsComponent co poniżej w funkcji changeColor()
+  //daje nam dostęp do rzeczy w komponencie CustomerDetailsComponent
+
   customers: Customer[] = [
     //powyzszy dekorator input mówi, 
     //że do tego pola będzie można wiązać
@@ -76,19 +81,23 @@ export class CustomerBrowserComponent implements OnInit {
     }
   ]
 
-  customer: Customer = null 
+  customer: Customer = null
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  onShift(direction: string){
+  changeColor() {
+    this.detailsComponent.changeColor()
+  }
+
+  onShift(direction: string) {
     const i = this.customers.indexOf(this.customer)
-    if (i> 0 && direction === 'left'){
-      this.customer = this.customers[i-1]
-    } else if (direction === "right" && i < this.customers.length -1){
-      this.customer = this.customers[i+1]
+    if (i > 0 && direction === 'left') {
+      this.customer = this.customers[i - 1]
+    } else if (direction === "right" && i < this.customers.length - 1) {
+      this.customer = this.customers[i + 1]
     }
   }
 

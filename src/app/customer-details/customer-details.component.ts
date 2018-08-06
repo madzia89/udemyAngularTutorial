@@ -16,7 +16,7 @@ export class CustomerDetailsComponent implements OnInit, OnDestroy, OnChanges, S
   showPhoto: boolean = false
   counter: number = 0
   counterHandler: number
-   
+
   CustomerType = CustomerType
 
   constructor() { }
@@ -26,14 +26,14 @@ export class CustomerDetailsComponent implements OnInit, OnDestroy, OnChanges, S
     // this.counterHandler = setInterval(()=>{this.counter++}, 1000)
   }
 
-  ngOnChanges(changes: SimpleChanges): void{
-    if(!changes.customer.firstChange){
+  ngOnChanges(changes: SimpleChanges): void {
+    if (!changes.customer.firstChange) {
       console.log(`change from ${changes.customer.previousValue.name} to ${changes.customer.currentValue.name}`)
     }
-    //dzieki
-  }
-
-  ngOnDestroy(){
+    //ngOnChanges daje możliwość odniesieia się do tego co działo się przed zmianą i co się dzieje teraz. 
+    //if na początku pozwala uniknąć błędu, który pojawiłby się gdybyśmy chcieli uzyskać dane z poprzedniej wartości gdy nią nie dysponujemy
+  } 
+  ngOnDestroy() {
     console.log('exit')
     // clearInterval(this.counterHandler)
   }
@@ -42,11 +42,11 @@ export class CustomerDetailsComponent implements OnInit, OnDestroy, OnChanges, S
     this.nameColor = this.nameColor === 'blue' ? 'red' : 'blue'
   }
 
-  left(){
+  left() {
     this.shift.emit('left')
   }
 
-  right(){
+  right() {
     this.shift.emit('right')
   }
 
