@@ -3,11 +3,18 @@ export interface Customer {
     photoUrl: string;
     description: string;
     age: number;
-    address: Address
+    address: Address;
+    type: CustomerType
 }
 
 export interface Address {
     street: string;
     houseNumber: number;
     city: string;
+}
+
+export enum CustomerType {
+    Standard,
+    Premium,
+    VIP
 }

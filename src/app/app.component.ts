@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Customer } from './model'
+import { Customer, CustomerType } from './model'
 
 @Component({
   selector: 'app-root',
@@ -17,13 +17,16 @@ export class AppComponent {
       street: "Złota",
       houseNumber: 13,
       city: "Warszawa"
-    }
-
+    },
+    type: CustomerType.Premium
   }
 
   nameColor: string = 'blue'
   isActive: boolean = true
   showPhoto: boolean = false
+
+  CustomerType = CustomerType 
+  //powyższy zapis pozwala na uzycie CustomerType jako obiektu js dlatego też możemy go użyć w app.component.html w ngSwitch
 
   constructor(){
   }

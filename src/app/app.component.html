@@ -1,7 +1,21 @@
 <div class="container">
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h1 [style.color] = 'nameColor' [class.isActive] = "isActive">{{customer.name.toUpperCase()}}</h1>
+      <h1 [style.color] = 'nameColor' [class.isActive] = "isActive">
+        {{customer.name.toUpperCase()}}
+        <ng-container [ngSwitch]="customer.type">
+          <!-- to co chcemy wyświetlić uzalezniamy od typu klienta dlatego przy ngSwitch dodaliśmy customer.type -->
+          <ng-container *ngSwitchCase="CustomerType.Standard">
+            *
+          </ng-container>
+          <ng-container *ngSwitchCase="CustomerType.Premium">
+            **
+          </ng-container>
+          <ng-container *ngSwitchCase="CustomerType.VIP">
+            ***
+          </ng-container>
+        </ng-container>
+      </h1>
     </div>
     <div class="panel-body">
       <div class="row">
