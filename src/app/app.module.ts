@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HighlightDirective } from './highlight.directive';
 import { CustomerBrowserComponent } from './customer-browser/customer-browser.component';
 import { CustomerDetailsComponent } from './customer-details/customer-details.component';
+import { CustomerService } from './customer.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import { CustomerDetailsComponent } from './customer-details/customer-details.co
     BrowserModule, //tutaj dodajemy moduły angularowe, które chcemy użyć w aplikacji
     FormsModule
   ],
-  providers: [], //services, które dodamy do naszej aplikacji
+  providers: [
+    CustomerService
+  ], //services, które dodamy do naszej aplikacji
   bootstrap: [AppComponent] //główne komponenty które zostaną zaaplikowane w index.html
 })
 export class AppModule { }

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { CustomerType, Customer } from '../model';
 import { CustomerDetailsComponent } from '../customer-details/customer-details.component';
+import { CustomerService } from '../customer.service';
 
 @Component({
   selector: 'app-customer-browser',
@@ -9,83 +10,15 @@ import { CustomerDetailsComponent } from '../customer-details/customer-details.c
 })
 export class CustomerBrowserComponent implements OnInit {
   @ViewChild('details') detailsComponent: CustomerDetailsComponent
-  //w środku viewChild jest nazwa zmiennej szablonowej do której chcemy sie odnieść
-  //detailsComponent jest typu CustomerDetailsComponent co poniżej w funkcji changeColor()
-  //daje nam dostęp do rzeczy w komponencie CustomerDetailsComponent
-
-  customers: Customer[] = [
-    //powyzszy dekorator input mówi, 
-    //że do tego pola będzie można wiązać
-    // w szablonie za pomocą property bindingu
-    {
-      name: "Jan Kowalski",
-      photoUrl: '../assets/images/examplePicture.jpg',
-      age: 22,
-      description: "VIP",
-      address: {
-        street: "Złota",
-        houseNumber: 13,
-        city: "Warszawa"
-      },
-      type: CustomerType.Premium,
-      categories: [
-        "zagraniczny",
-        "mikroprzedsiębiorstwo",
-        "duży obrót"
-      ]
-    },
-    {
-      name: "Janina Kalinowska",
-      photoUrl: '../assets/images/examplePicture.jpg',
-      age: 77,
-      description: "dobry klient",
-      address: {
-        street: "Biała",
-        houseNumber: 1,
-        city: "Biała Podlaska"
-      },
-      type: CustomerType.Premium,
-      categories: [
-        "osoba prywatna"
-      ]
-    },
-    {
-      name: "Basia Barbara",
-      photoUrl: '../assets/images/examplePicture.jpg',
-      age: 19,
-      description: "co za człowiek",
-      address: {
-        street: "Garbowa",
-        houseNumber: 55,
-        city: "Kielce"
-      },
-      type: CustomerType.Standard,
-      categories: [
-        "mały sklep"
-      ]
-    },
-    {
-      name: "Kasia Katarzyna",
-      photoUrl: '../assets/images/examplePicture.jpg',
-      age: 36,
-      description: "co za człowiek",
-      address: {
-        street: "Górzasta",
-        houseNumber: 123,
-        city: "Częstochowa"
-      },
-      type: CustomerType.VIP,
-      categories: [
-        "sieć handlowa"
-      ]
-    }
-  ]
-
+  
+  customers: Customer[]
   customer: Customer = null
 
-  constructor() { }
+  constructor(private customerService: CustomerService) { }
 
   ngOnInit() {
+    this.customers = this.customerService.getCustomers()
+    this.customer = this.customers[0]
   }
 
   changeColor() {
