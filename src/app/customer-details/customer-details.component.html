@@ -28,7 +28,7 @@
         <p>adres: {{customer.address.street | uppercase}} {{customer.address.houseNumber}}, {{customer.address.city}}</p>
         <ul>
           <li *ngFor="let category of customer.categories; let oddCategory=odd" [class.oddCategory]="oddCategory">
-            {{category | capitalize}}
+            {{category | capitalize: 3}}
           </li>
         </ul>
         <button class="btn btn-primary" (click)="isActive = !isActive" type="button">przełącz</button>
