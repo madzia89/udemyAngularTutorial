@@ -10,7 +10,8 @@ import { CustomerBrowserComponent } from './customer-browser/customer-browser.co
 import { CustomerDetailsComponent } from './customer-details/customer-details.component';
 import { CustomerService } from './customer.service'
 import { Config, CONFIG } from './model'
-import { MessageService } from './message.service'
+import { MessageService } from './message.service';
+import { CustomerAddComponent } from './customer-add/customer-add.component'
 
 
 
@@ -24,7 +25,8 @@ const config: Config = {
     AppComponent,
     HighlightDirective,
     CustomerBrowserComponent,
-    CustomerDetailsComponent, //dodajemy tutaj wszystkie komponenty które dodajemy do aplikacji
+    CustomerDetailsComponent,
+    CustomerAddComponent, //dodajemy tutaj wszystkie komponenty które dodajemy do aplikacji
   ],
   imports: [
     BrowserModule, //tutaj dodajemy moduły angularowe, które chcemy użyć w aplikacji

@@ -19,4 +19,8 @@ export class CustomerService {
     //poza samym importem mapa, 
     //pipe jest potrzebny aby map zadziałał (dzieje się tak od wprowadzenia angular6)
   }
+
+  createCustomer(customer: Customer){
+    
+  }
 }
