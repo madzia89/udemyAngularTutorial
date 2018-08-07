@@ -3,15 +3,17 @@
     <select [(ngModel)]="customer">
       <option [ngValue]="null">Wybierz klienta</option>
       <option *ngFor="let c of customers" [ngValue]="c">
-         {{c.name}}
+        {{c.name}}
       </option>
     </select>
     <button class="btn btn-default" (click)="changeColor()">
       zmień kolor
     </button>
+    <button class="btn btn-default" (click)="deleteCustomer()">
+      usuń z bazy </button>
   </div>
 </div>
 
 <div *ngIf="customer">
-<app-customer-details #details [customer]="customer" (shift)="onShift($event)"></app-customer-details>
+  <app-customer-details #details [customer]="customer" (shift)="onShift($event)"></app-customer-details>
 </div>

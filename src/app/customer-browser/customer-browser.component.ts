@@ -2,6 +2,7 @@ import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { CustomerType, Customer } from '../model';
 import { CustomerDetailsComponent } from '../customer-details/customer-details.component';
 import { CustomerService } from '../customer.service';
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-customer-browser',
@@ -14,13 +15,27 @@ export class CustomerBrowserComponent implements OnInit {
   customers: Customer[]
   customer: Customer = null
 
-  constructor(private customerService: CustomerService) { }
+  constructor(
+    private customerService: CustomerService,
+    private messageService: MessageService
+  ) { }
 
   ngOnInit() {
-    this.customerService.getCustomers().subscribe(response =>{
-      this.customers = response
-      this.customer = this.customers[0]
-    })
+    this.refresh()
+  }
+
+  deleteCustomer(){
+    this.customerService.deleteCustomer(this.customer).subscribe(
+      ()=> {
+        this.messageService.success("klient został usunięty")
+        this.refresh()
+      },
+      error => {
+        console.log(error)
+        this.messageService.error('błąd w połączeniu z serwerem')
+      }
+    )
+    
   }
 
   changeColor() {
@@ -34,6 +49,13 @@ export class CustomerBrowserComponent implements OnInit {
     } else if (direction === "right" && i < this.customers.length - 1) {
       this.customer = this.customers[i + 1]
     }
+  }
+
+  private refresh(){
+    this.customerService.getCustomers().subscribe(response =>{
+      this.customers = response
+      this.customer = this.customers[0]
+    })
   }
 
 }

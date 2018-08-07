@@ -7,7 +7,8 @@ export interface Customer {
     age: number;
     address: Address;
     type: CustomerType;
-    categories: string[]
+    categories: string[];
+    id?: number
 }
 
 export interface Address {
