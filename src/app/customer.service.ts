@@ -21,6 +21,6 @@ export class CustomerService {
   }
 
   createCustomer(customer: Customer){
-    
+    console.log(customer)
   }
 }
