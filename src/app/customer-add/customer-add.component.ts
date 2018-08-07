@@ -33,7 +33,8 @@ export class CustomerAddComponent implements OnInit {
         houseNumber: 0,
         street: ''
       }
-    })
+    }).subscribe();
+    //subscribe jest niezbędny aby zrobić posta i wysłać to do db
   }
 
 }

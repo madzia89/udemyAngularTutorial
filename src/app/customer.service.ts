@@ -21,6 +21,6 @@ export class CustomerService {
   }
 
   createCustomer(customer: Customer){
-    console.log(customer)
+    return this.httpClient.post(`${this.config.apiUrl}/customers`, customer)
   }
 }

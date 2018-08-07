@@ -16,7 +16,7 @@ import { CustomerAddComponent } from './customer-add/customer-add.component'
 
 
 const config: Config = {
-  customerLimit: 2,
+  customerLimit: 10,
   apiUrl: 'http://localhost:13378'
 }
 
