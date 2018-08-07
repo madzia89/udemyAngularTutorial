@@ -35,7 +35,6 @@ export class CustomerBrowserComponent implements OnInit {
         this.messageService.error('błąd w połączeniu z serwerem')
       }
     )
-    
   }
 
   changeColor() {

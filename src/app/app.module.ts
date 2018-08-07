@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser'
 import { FormsModule } from '@angular/forms'
 import { NgModule } from '@angular/core'
-import { HttpClientModule } from '@angular/common/http' //potrzebne do obsługi komunikacji z serwerem
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http' //potrzebne do obsługi komunikacji z serwerem
 import { ToastrModule } from 'ngx-toastr'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AppComponent } from './app.component'
@@ -12,6 +12,7 @@ import { CustomerService } from './customer.service'
 import { Config, CONFIG } from './model'
 import { MessageService } from './message.service';
 import { CustomerAddComponent } from './customer-add/customer-add.component'
+import { ErrorHandlingInterceptor } from './error-handling.interceptor';
 
 
 
@@ -44,7 +45,12 @@ const config: Config = {
     // CustomerService ===> to samo co niżej
     {provide: CustomerService, useClass: CustomerService},
     {provide: CONFIG, useValue: config},
-    MessageService
+    MessageService,
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorHandlingInterceptor, multi: true}
+    //http_interceptors jest to token zdefiniowany w samym angularze
+    //dodajemy klasę którą chcemy użyć
+    //multi jest potrzbene ponieważ HTTp_INTERCEPTORS może miec wiele usług,
+    // a my je wszystkie chcemy obsłużyć dla tego samego tokena
   ], //services, które dodamy do naszej aplikacji
   bootstrap: [AppComponent] //główne komponenty które zostaną zaaplikowane w index.html
 })
