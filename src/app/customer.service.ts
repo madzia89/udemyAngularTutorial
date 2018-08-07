@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { Customer, CustomerType } from './model';
+import { Injectable, Inject } from '@angular/core';
+import { Customer, CustomerType, Config, CONFIG} from './model';
 
 @Injectable({
   providedIn: 'root'
@@ -70,9 +70,9 @@ export class CustomerService {
     }
   ]
 
-   constructor() { }
+   constructor(@Inject(CONFIG) private config: Config) { }
 
   getCustomers(){
-    return this.customers
+    return this.customers.slice(0, this.config.customerLimit)
   }
 }

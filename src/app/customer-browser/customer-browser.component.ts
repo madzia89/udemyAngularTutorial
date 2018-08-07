@@ -18,7 +18,7 @@ export class CustomerBrowserComponent implements OnInit {
 
   ngOnInit() {
     this.customers = this.customerService.getCustomers()
-    this.customer = this.customers[0]
+    this.customer = this.customer
   }
 
   changeColor() {

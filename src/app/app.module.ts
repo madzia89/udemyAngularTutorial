@@ -7,6 +7,11 @@ import { HighlightDirective } from './highlight.directive';
 import { CustomerBrowserComponent } from './customer-browser/customer-browser.component';
 import { CustomerDetailsComponent } from './customer-details/customer-details.component';
 import { CustomerService } from './customer.service';
+import { Config, CONFIG } from './model';
+
+const config: Config = {
+  customerLimit: 2
+}
 
 @NgModule({
   declarations: [
@@ -20,7 +25,14 @@ import { CustomerService } from './customer.service';
     FormsModule
   ],
   providers: [
-    CustomerService
+    //useClass mówi, że mamy użyć klasy
+    //możemy tutaj podać nie tylko nazwę klasy, ale też 
+    //useValue aby użyć już zainicjowanej instancji
+    //useFactory żeby podać funkcję która będzie tworzyła nam instancję,
+    // co do zasady ta para poniżej mówi nam czego użyć gdy ktoś zapyta o dany symbol.
+    // CustomerService ===> to samo co niżej
+    {provide: CustomerService, useClass: CustomerService},
+    {provide: CONFIG, useValue: config}
   ], //services, które dodamy do naszej aplikacji
   bootstrap: [AppComponent] //główne komponenty które zostaną zaaplikowane w index.html
 })
