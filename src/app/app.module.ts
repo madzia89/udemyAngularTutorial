@@ -1,13 +1,16 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser'
 import { FormsModule } from '@angular/forms'
-import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
-import { HighlightDirective } from './highlight.directive';
+import { NgModule } from '@angular/core'
+import { ToastrModule } from 'ngx-toastr'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { AppComponent } from './app.component'
+import { HighlightDirective } from './highlight.directive'
 import { CustomerBrowserComponent } from './customer-browser/customer-browser.component';
 import { CustomerDetailsComponent } from './customer-details/customer-details.component';
-import { CustomerService } from './customer.service';
-import { Config, CONFIG } from './model';
+import { CustomerService } from './customer.service'
+import { Config, CONFIG } from './model'
+import { MessageService } from './message.service'
+
 
 const config: Config = {
   customerLimit: 2
@@ -22,7 +25,9 @@ const config: Config = {
   ],
   imports: [
     BrowserModule, //tutaj dodajemy moduły angularowe, które chcemy użyć w aplikacji
-    FormsModule
+    FormsModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [
     //useClass mówi, że mamy użyć klasy
@@ -32,7 +37,8 @@ const config: Config = {
     // co do zasady ta para poniżej mówi nam czego użyć gdy ktoś zapyta o dany symbol.
     // CustomerService ===> to samo co niżej
     {provide: CustomerService, useClass: CustomerService},
-    {provide: CONFIG, useValue: config}
+    {provide: CONFIG, useValue: config},
+    MessageService
   ], //services, które dodamy do naszej aplikacji
   bootstrap: [AppComponent] //główne komponenty które zostaną zaaplikowane w index.html
 })

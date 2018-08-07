@@ -11,7 +11,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^6.1.0",
+    "@angular/animations": "^6.1.1",
     "@angular/common": "^6.1.0",
     "@angular/compiler": "^6.1.0",
     "@angular/core": "^6.1.0",
@@ -24,6 +24,7 @@
     "babel-preset-es2015": "^6.24.1",
     "bootstrap": "^4.1.3",
     "core-js": "^2.5.4",
+    "ngx-toastr": "^8.10.0",
     "node": "^10.7.0",
     "rxjs": "^6.0.0",
     "zone.js": "~0.8.26"
