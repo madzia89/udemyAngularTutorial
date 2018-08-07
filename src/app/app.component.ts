@@ -7,7 +7,7 @@ import { Customer, CustomerType } from './model'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
- 
+  currentDate: number = Date.now()
 
   constructor() {
   }

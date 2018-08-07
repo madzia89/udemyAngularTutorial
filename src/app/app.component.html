@@ -1,4 +1,9 @@
 <div class="container">
+        <!-- poniżej zapis pipe w wersji | -->
+    <p>Dzisiaj jest {{currentDate | date}}</p>
+    <p>Dzisiaj jest {{currentDate | date: 'short'}}</p>
+    <p>Dzisiaj jest {{currentDate | date: 'long'}}</p>
+    <p>Dzisiaj jest {{currentDate | date: 'dd-mm-yyyy'}}</p>
     <app-customer-browser></app-customer-browser>
     <app-customer-add></app-customer-add>
 </div>
