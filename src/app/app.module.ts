@@ -13,6 +13,7 @@ import { Config, CONFIG } from './model'
 import { MessageService } from './message.service';
 import { CustomerAddComponent } from './customer-add/customer-add.component'
 import { ErrorHandlingInterceptor } from './error-handling.interceptor';
+import { CapitalizePipe } from './capitalize.pipe'
 
 
 
@@ -27,7 +28,8 @@ const config: Config = {
     HighlightDirective,
     CustomerBrowserComponent,
     CustomerDetailsComponent,
-    CustomerAddComponent, //dodajemy tutaj wszystkie komponenty które dodajemy do aplikacji
+    CustomerAddComponent,
+    CapitalizePipe, //dodajemy tutaj wszystkie komponenty które dodajemy do aplikacji
   ],
   imports: [
     BrowserModule, //tutaj dodajemy moduły angularowe, które chcemy użyć w aplikacji
