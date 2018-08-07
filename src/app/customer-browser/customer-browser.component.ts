@@ -3,6 +3,7 @@ import { CustomerType, Customer } from '../model';
 import { CustomerDetailsComponent } from '../customer-details/customer-details.component';
 import { CustomerService } from '../customer.service';
 import { MessageService } from '../message.service';
+import { Observable } from '../../../node_modules/rxjs';
 
 @Component({
   selector: 'app-customer-browser',
@@ -12,7 +13,8 @@ import { MessageService } from '../message.service';
 export class CustomerBrowserComponent implements OnInit {
   @ViewChild('details') detailsComponent: CustomerDetailsComponent
   
-  customers: Customer[]
+  // customers: Customer[]
+  customers$: Observable<Customer[]>
   customer: Customer = null
 
   constructor(
@@ -38,19 +40,21 @@ export class CustomerBrowserComponent implements OnInit {
   }
 
   onShift(direction: string) {
-    const i = this.customers.indexOf(this.customer)
-    if (i > 0 && direction === 'left') {
-      this.customer = this.customers[i - 1]
-    } else if (direction === "right" && i < this.customers.length - 1) {
-      this.customer = this.customers[i + 1]
-    }
+    // const i = this.customers.indexOf(this.customer)
+    // if (i > 0 && direction === 'left') {
+    //   this.customer = this.customers[i - 1]
+    // } else if (direction === "right" && i < this.customers.length - 1) {
+    //   this.customer = this.customers[i + 1]
+    // }
   }
 
   private refresh(){
-    this.customerService.getCustomers().subscribe(response =>{
-      this.customers = response
-      this.customer = this.customers[0]
-    })
+    this.customer = null
+    this.customers$ = this.customerService.getCustomers()
+    // this.customerService.getCustomers().subscribe(response =>{
+    //   this.customers = response
+    //   this.customer = this.customers[0]
+    // })
   }
 
 }
