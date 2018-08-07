@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser'
 import { FormsModule } from '@angular/forms'
 import { NgModule } from '@angular/core'
+import { HttpClientModule } from '@angular/common/http' //potrzebne do obsługi komunikacji z serwerem
 import { ToastrModule } from 'ngx-toastr'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AppComponent } from './app.component'
@@ -12,8 +13,10 @@ import { Config, CONFIG } from './model'
 import { MessageService } from './message.service'
 
 
+
 const config: Config = {
-  customerLimit: 2
+  customerLimit: 2,
+  apiUrl: 'http://localhost:13378'
 }
 
 @NgModule({
@@ -27,7 +30,8 @@ const config: Config = {
     BrowserModule, //tutaj dodajemy moduły angularowe, które chcemy użyć w aplikacji
     FormsModule,
     ToastrModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [
     //useClass mówi, że mamy użyć klasy

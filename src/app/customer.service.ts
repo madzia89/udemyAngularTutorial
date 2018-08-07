@@ -1,78 +1,22 @@
 import { Injectable, Inject } from '@angular/core';
 import { Customer, CustomerType, Config, CONFIG} from './model';
+import { HttpClient } from '../../node_modules/@angular/common/http';
+import { map } from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerService {
-  private customers: Customer[] = [
-    {
-      name: "Jan Kowalski",
-      photoUrl: '../assets/images/examplePicture.jpg',
-      age: 22,
-      description: "VIP",
-      address: {
-        street: "Złota",
-        houseNumber: 13,
-        city: "Warszawa"
-      },
-      type: CustomerType.Premium,
-      categories: [
-        "zagraniczny",
-        "mikroprzedsiębiorstwo",
-        "duży obrót"
-      ]
-    },
-    {
-      name: "Janina Kalinowska",
-      photoUrl: '../assets/images/examplePicture.jpg',
-      age: 77,
-      description: "dobry klient",
-      address: {
-        street: "Biała",
-        houseNumber: 1,
-        city: "Biała Podlaska"
-      },
-      type: CustomerType.Premium,
-      categories: [
-        "osoba prywatna"
-      ]
-    },
-    {
-      name: "Basia Barbara",
-      photoUrl: '../assets/images/examplePicture.jpg',
-      age: 19,
-      description: "co za człowiek",
-      address: {
-        street: "Garbowa",
-        houseNumber: 55,
-        city: "Kielce"
-      },
-      type: CustomerType.Standard,
-      categories: [
-        "mały sklep"
-      ]
-    },
-    {
-      name: "Kasia Katarzyna",
-      photoUrl: '../assets/images/examplePicture.jpg',
-      age: 36,
-      description: "co za człowiek",
-      address: {
-        street: "Górzasta",
-        houseNumber: 123,
-        city: "Częstochowa"
-      },
-      type: CustomerType.VIP,
-      categories: [
-        "sieć handlowa"
-      ]
-    }
-  ]
 
-   constructor(@Inject(CONFIG) private config: Config) { }
+   constructor(
+     private httpClient: HttpClient,
+     @Inject(CONFIG) private config: Config
+    ) { }
 
   getCustomers(){
-    return this.customers.slice(0, this.config.customerLimit)
+    return this.httpClient.get<Customer[]>(`${this.config.apiUrl}/customers`)
+    .pipe(map(customers => customers.slice(0, this.config.customerLimit)))
+    //poza samym importem mapa, 
+    //pipe jest potrzebny aby map zadziałał (dzieje się tak od wprowadzenia angular6)
   }
 }
