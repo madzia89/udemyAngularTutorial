@@ -29,10 +29,6 @@ export class CustomerBrowserComponent implements OnInit {
       ()=> {
         this.messageService.success("klient został usunięty")
         this.refresh()
-      },
-      error => {
-        console.log(error)
-        this.messageService.error('błąd w połączeniu z serwerem')
       }
     )
   }
