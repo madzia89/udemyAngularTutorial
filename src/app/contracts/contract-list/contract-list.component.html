@@ -1,0 +1,23 @@
+<div clas="panel panel-default">
+  <div class="panel-heading">
+    Umowy
+  </div>
+  <div class="panel-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nazwa klienta</th>
+          <th>Data zawarcia</th>
+          <th>kwota</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let contraact of contracts">
+          <td>{{contract.customerName}}</td>
+          <td>{{contract.date | date: "dd-mm-yyyy"}}</td>
+          <td>{{contract.value}} PLN</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
