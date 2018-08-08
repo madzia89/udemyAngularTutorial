@@ -1,8 +1,8 @@
-import { HttpInterceptor, HttpRequest, HttpHandler, HttpSentEvent, HttpUserEvent, HttpHeaderResponse, HttpProgressEvent, HttpResponse, HttpErrorResponse } from "../../node_modules/@angular/common/http";
-import { Observable } from "../../node_modules/rxjs";
+import { HttpInterceptor, HttpRequest, HttpHandler, HttpSentEvent, HttpUserEvent, HttpHeaderResponse, HttpProgressEvent, HttpResponse, HttpErrorResponse } from "@angular/common/http";
+import { Observable } from "rxjs";
 import { MessageService } from "./message.service";
 import { catchError } from "rxjs/operators"
-import { Injectable } from "../../node_modules/@angular/core";
+import { Injectable } from "@angular/core";
 
 @Injectable()
 export class ErrorHandlingInterceptor implements HttpInterceptor{

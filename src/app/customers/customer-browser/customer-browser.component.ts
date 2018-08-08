@@ -2,11 +2,11 @@ import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { CustomerType, Customer } from '../model';
 import { CustomerDetailsComponent } from '../customer-details/customer-details.component';
 import { CustomerService } from '../customer.service';
-import { MessageService } from '../message.service';
-import { Observable } from '../../../node_modules/rxjs';
+import { MessageService } from '../../message.service';
+import { Observable } from '../../../../node_modules/rxjs';
 
 @Component({
-  selector: 'app-customer-browser',
+  selector: 'cus-customer-browser',
   templateUrl: './customer-browser.component.html',
   styleUrls: ['./customer-browser.component.css']
 })
