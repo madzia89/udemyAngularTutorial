@@ -2,6 +2,7 @@ import { Injectable, Inject } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { CONFIG, Config} from '../model'
 import { Contract } from './model'
+import { TouchSequence } from '../../../node_modules/@types/selenium-webdriver';
 
 @Injectable()
 export class ContractService {
@@ -13,5 +14,10 @@ export class ContractService {
 
   getCustomers(){
     return this.httpClient.get<Contract[]>(`${this.config.apiUrl}/contracts`)
+  }
+
+  //poniżej wydobycie pojedynczej umowy dla celów wyświetlenia w komponencie
+  getCustomer(id: number){
+    return this.httpClient.get<Contract>(`${this.config.apiUrl}/contracts/${id}`)
   }
 }
