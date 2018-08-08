@@ -7,10 +7,11 @@ import { CustomerService } from './customer.service';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '../../../node_modules/@angular/router';
 import { AuthGuard } from '../core/auth-guard.service';
+import { CustomerAddDeactivateGuard } from './customer-add-deactivate-guard.service';
 
 const routes = [
   {path: 'customers', component: CustomerBrowserComponent},
-  {path: 'customers/add', component: CustomerAddComponent, canActivate: [ AuthGuard ]} //canActivate wskazuje na komponent strażnika, który chroni dostępu jeżeli zwrócono false w tamtym komponencie
+  {path: 'customers/add', component: CustomerAddComponent, canActivate: [ AuthGuard ], canDeactivate: [CustomerAddDeactivateGuard]} //canActivate wskazuje na komponent strażnika, który chroni dostępu jeżeli zwrócono false w tamtym komponencie
 ]
 
 @NgModule({
