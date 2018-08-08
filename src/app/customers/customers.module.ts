@@ -5,10 +5,18 @@ import { CustomerDetailsComponent } from './customer-details/customer-details.co
 import { CustomerBrowserComponent } from './customer-browser/customer-browser.component';
 import { CustomerService } from './customer.service';
 import { SharedModule } from '../shared/shared.module';
+import { RouterModule } from '../../../node_modules/@angular/router';
+
+const routes = [
+  {path: 'customers', component: CustomerBrowserComponent},
+  {path: 'customers/add', component: CustomerAddComponent}
+]
 
 @NgModule({
   imports: [
-    SharedModule
+    SharedModule,
+    RouterModule.forChild(routes)
+    //tutaj forChild a nie forRoots ponieważ jesteśmy w dziecku a nie w komponencie app
   ],
   declarations: [
     CustomerAddComponent,

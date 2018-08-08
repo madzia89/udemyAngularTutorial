@@ -15,9 +15,6 @@ import { ContractListComponent } from './contracts/contract-list/contract-list.c
 const routes: Routes =[
   {path: '', redirectTo: "customers", pathMatch: "full"},
   //pathMatch jest tutaj potrzebny bo inaczej każda ścieżka by tutaj pasowała (wszak każdy string zawiera w sobie pusty string)
-  {path: 'customers', component: CustomerBrowserComponent},
-  {path: 'customers/add', component: CustomerAddComponent},
-  {path: 'contracts', component: ContractListComponent}
 ]
 
 @NgModule({
