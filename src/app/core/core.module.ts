@@ -5,6 +5,7 @@ import { HTTP_INTERCEPTORS } from '../../../node_modules/@angular/common/http';
 import { ErrorHandlingInterceptor } from './error-handling.interceptor';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RouterModule } from '../../../node_modules/@angular/router';
+import { AuthGuard } from './auth-guard.service';
 
 
 const config: Config = {
@@ -15,6 +16,7 @@ const config: Config = {
 @NgModule({
   imports: [RouterModule],
   providers: [
+    AuthGuard,
     MessageService,
     { provide: CONFIG, useValue: config },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorHandlingInterceptor, multi: true }
