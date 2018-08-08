@@ -14,6 +14,7 @@ import { MessageService } from './message.service';
 import { CustomerAddComponent } from './customer-add/customer-add.component'
 import { ErrorHandlingInterceptor } from './error-handling.interceptor';
 import { CapitalizePipe } from './capitalize.pipe'
+import { ContractsModule } from './contracts/contracts.module';
 
 
 
@@ -36,7 +37,8 @@ const config: Config = {
     FormsModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    ContractsModule
   ],
   providers: [
     //useClass mówi, że mamy użyć klasy
