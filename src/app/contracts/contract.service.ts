@@ -12,12 +12,12 @@ export class ContractService {
     @Inject(CONFIG) private config: Config
   ) {}
 
-  getCustomers(){
+  getContracts(){
     return this.httpClient.get<Contract[]>(`${this.config.apiUrl}/contracts`)
   }
 
   //poniżej wydobycie pojedynczej umowy dla celów wyświetlenia w komponencie
-  getCustomer(id: number){
+  getContract(id: number){
     return this.httpClient.get<Contract>(`${this.config.apiUrl}/contracts/${id}`)
   }
 }

@@ -13,7 +13,7 @@ export class ContractListComponent implements OnInit {
   constructor(private contractService: ContractService) { }
 
   ngOnInit() {
-    this.contractService.getCustomers().subscribe(contracts => {
+    this.contractService.getContracts().subscribe(contracts => {
       this.contracts = contracts
     })
   }

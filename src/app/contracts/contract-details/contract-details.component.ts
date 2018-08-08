@@ -21,7 +21,7 @@ export class ContractDetailsComponent implements OnInit {
       //wewnątrz funkcji strzałkowej params jest słownikiem tj. prosty obiekt javascriptowy, możemy się do niego dobierać za pomoca nawiasów kwadratowych
       const id = parseInt(params['id']) //parseInt zamienia stringa z params na liczbę
       // 'id' odwołuje się do id zdefiniowanego w ścieżce routy czyli to id jest tym samym co id w roucie contracts/:id
-      this.contractService.getCustomer(id).subscribe(contract => {
+      this.contractService.getContract(id).subscribe(contract => {
         this.contract = contract
         //tutaj zapisujemy umowę do zmiennej powyżej w komponencie
       })
