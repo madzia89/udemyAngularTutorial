@@ -13,7 +13,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let contract of contracts">
-          <td>{{contract.customerName}}</td>
+          <td appHighlight>{{contract.customerName}}</td>
           <td>{{contract.date | date: "dd-mm-yyyy"}}</td>
           <td>{{contract.value}} PLN</td>
         </tr>

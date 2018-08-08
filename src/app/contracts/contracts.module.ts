@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ContractListComponent } from './contract-list/contract-list.component';
 import { ContractService } from './contract.service';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
-    CommonModule //moduł z podstawowymi funkcjonalnościami angularowymi
+    SharedModule
   ],
   declarations: [ContractListComponent],
   providers: [ContractService],

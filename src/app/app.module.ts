@@ -5,12 +5,12 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http' //pot
 import { ToastrModule } from 'ngx-toastr'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AppComponent } from './app.component'
-import { HighlightDirective } from './customers/highlight.directive'
+import { HighlightDirective } from './shared/highlight.directive'
 import { CustomerService } from './customers/customer.service'
 import { Config, CONFIG } from './model'
 import { MessageService } from './message.service';
 import { ErrorHandlingInterceptor } from './error-handling.interceptor';
-import { CapitalizePipe } from './customers/capitalize.pipe'
+import { CapitalizePipe } from './shared/capitalize.pipe'
 import { ContractsModule } from './contracts/contracts.module';
 import { CustomersModule } from './customers/customers.module';
 

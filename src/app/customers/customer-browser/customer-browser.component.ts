@@ -3,7 +3,7 @@ import { CustomerType, Customer } from '../model';
 import { CustomerDetailsComponent } from '../customer-details/customer-details.component';
 import { CustomerService } from '../customer.service';
 import { MessageService } from '../../message.service';
-import { Observable } from '../../../../node_modules/rxjs';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'cus-customer-browser',
