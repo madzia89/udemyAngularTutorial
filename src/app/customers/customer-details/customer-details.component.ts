@@ -6,7 +6,6 @@ import { MessageService } from '../../core/message.service';
 @Component({
   selector: 'cus-customer-details',
   templateUrl: './customer-details.component.html',
-  styleUrls: ['./customer-details.component.css']
 })
 
 export class CustomerDetailsComponent implements OnInit, OnDestroy, OnChanges {

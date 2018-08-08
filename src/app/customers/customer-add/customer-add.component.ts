@@ -6,7 +6,6 @@ import { CustomerService } from '../customer.service';
 @Component({
   selector: 'cus-customer-add',
   templateUrl: './customer-add.component.html',
-  styleUrls: ['./customer-add.component.css']
 })
 export class CustomerAddComponent implements OnInit {
   name: string;

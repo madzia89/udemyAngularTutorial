@@ -1,19 +1,22 @@
 import { BrowserModule } from '@angular/platform-browser'
-import { FormsModule } from '@angular/forms'
 import { NgModule } from '@angular/core'
+import { RouterModule, Routes } from '@angular/router'
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http' //potrzebne do obsługi komunikacji z serwerem
 import { ToastrModule } from 'ngx-toastr'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AppComponent } from './app.component'
-import { HighlightDirective } from './shared/highlight.directive'
-import { CustomerService } from './customers/customer.service'
-import { Config, CONFIG } from './model'
-import { MessageService } from './core/message.service';
-import { ErrorHandlingInterceptor } from './core/error-handling.interceptor';
-import { CapitalizePipe } from './shared/capitalize.pipe'
-import { ContractsModule } from './contracts/contracts.module';
-import { CustomersModule } from './customers/customers.module';
-import { CoreModule } from './core/core.module';
+import { ContractsModule } from './contracts/contracts.module'
+import { CustomersModule } from './customers/customers.module'
+import { CoreModule } from './core/core.module'
+import { CustomerBrowserComponent } from './customers/customer-browser/customer-browser.component';
+import { CustomerAddComponent } from './customers/customer-add/customer-add.component';
+import { ContractListComponent } from './contracts/contract-list/contract-list.component';
+
+const routes: Routes =[
+  {path: 'customers', component: CustomerBrowserComponent},
+  {path: 'customers/add', component: CustomerAddComponent},
+  {path: 'contracts', component: ContractListComponent}
+]
 
 @NgModule({
   declarations: [
@@ -25,6 +28,7 @@ import { CoreModule } from './core/core.module';
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
     HttpClientModule,
+    RouterModule.forRoot(routes),
     ContractsModule,
     CustomersModule
   ],

@@ -8,7 +8,6 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'cus-customer-browser',
   templateUrl: './customer-browser.component.html',
-  styleUrls: ['./customer-browser.component.css']
 })
 export class CustomerBrowserComponent implements OnInit {
   @ViewChild('details') detailsComponent: CustomerDetailsComponent

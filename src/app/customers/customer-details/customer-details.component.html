@@ -1,7 +1,7 @@
 <div class="panel panel-defaul">
   <div class="panel-heading">
     <h1 [style.color]='nameColor' [class.isActive]="isActive">
-      <button type="button" (click)="left()">&lt;</button>
+      <button type="button"  class="btn btn-primary" (click)="left()">&lt;</button>
       {{customer.name.toUpperCase()}}
       <ng-container [ngSwitch]="customer.type">
         <ng-container *ngSwitchCase="CustomerType.Standard">
@@ -17,7 +17,7 @@
           nieznany typ klienta
         </ng-container>
       </ng-container>
-      <button type="button" (click)="right()">&gt;</button>
+      <button type="button" class="btn btn-primary" (click)="right()">&gt;</button>
     </h1>
   </div>
   <div class="panel-body">
