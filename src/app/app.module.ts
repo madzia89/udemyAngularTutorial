@@ -8,18 +8,20 @@ import { AppComponent } from './app.component'
 import { ContractsModule } from './contracts/contracts.module'
 import { CustomersModule } from './customers/customers.module'
 import { CoreModule } from './core/core.module'
-import { CustomerBrowserComponent } from './customers/customer-browser/customer-browser.component';
-import { CustomerAddComponent } from './customers/customer-add/customer-add.component';
-import { ContractListComponent } from './contracts/contract-list/contract-list.component';
+import { NotFoundComponent } from './not-found/not-found.component'
 
 const routes: Routes =[
   {path: '', redirectTo: "customers", pathMatch: "full"},
   //pathMatch jest tutaj potrzebny bo inaczej każda ścieżka by tutaj pasowała (wszak każdy string zawiera w sobie pusty string)
+  {path: '**', component: NotFoundComponent} //gwiazdki oznaczają że routa zstanie zastosowana do wszystkich ścieżek które nie zostaly zdefiniowane
+  //w tym przypadku ** przekieruja nas do komponentu gdy wpisany adres nie ma odzwierciedlenia w istniejących routach 
+  //np. gdy ktos się pomyli i zamiast customers wpisze kustomers
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
+    NotFoundComponent,
   ],
   imports: [
     CoreModule,
