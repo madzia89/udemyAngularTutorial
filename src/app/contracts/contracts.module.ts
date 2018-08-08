@@ -8,13 +8,14 @@ import {ContractResolver} from "./contract-resolver.service";
 
 const routes = [
   {
-    path: 'contracts/:id',
+    path: ':id',  //tutaj slash przed nr id sam się dodaje!!!!
+    //powyżej i poniżej jest tylko część linka do routy bo pierwsza część tego linka zawarta została zdefniowana w lazy routingu
     component: ContractDetailsComponent,
     resolve: {
       contract: ContractResolver
     }
   },
-  {path: 'contracts', component: ContractListComponent}
+  {path: '', component: ContractListComponent}
 ]
 
 @NgModule({

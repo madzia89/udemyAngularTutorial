@@ -5,12 +5,14 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http' //pot
 import { ToastrModule } from 'ngx-toastr'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AppComponent } from './app.component'
-import { ContractsModule } from './contracts/contracts.module'
+// import { ContractsModule } from './contracts/contracts.module'
 import { CustomersModule } from './customers/customers.module'
 import { CoreModule } from './core/core.module'
 import { NotFoundComponent } from './not-found/not-found.component'
 
 const routes: Routes =[
+  {path: 'contracts', loadChildren: 'src/app/contracts/contracts.module#ContractsModule'},
+  //powyżej przykład implementacji lazy routingu
   {path: '', redirectTo: "customers", pathMatch: "full"},
   //pathMatch jest tutaj potrzebny bo inaczej każda ścieżka by tutaj pasowała (wszak każdy string zawiera w sobie pusty string)
   {path: '**', component: NotFoundComponent} //gwiazdki oznaczają że routa zstanie zastosowana do wszystkich ścieżek które nie zostaly zdefiniowane
@@ -30,10 +32,12 @@ const routes: Routes =[
     BrowserAnimationsModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
-    ContractsModule,
+    // ContractsModule,
+    //nie jest nam to tutaj potrzebne bo ten moduł załaduje się dopiero podczas lazy loadingu
     CustomersModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [RouterModule]
 })
 export class AppModule { }
