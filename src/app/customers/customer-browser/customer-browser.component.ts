@@ -2,7 +2,7 @@ import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { CustomerType, Customer } from '../model';
 import { CustomerDetailsComponent } from '../customer-details/customer-details.component';
 import { CustomerService } from '../customer.service';
-import { MessageService } from '../../message.service';
+import { MessageService } from '../../core/message.service';
 import { Observable } from 'rxjs';
 
 @Component({

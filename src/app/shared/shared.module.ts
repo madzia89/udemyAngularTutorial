@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CapitalizePipe } from './capitalize.pipe';
 import { HighlightDirective } from './highlight.directive';
-import { FormsModule } from '../../../node_modules/@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [

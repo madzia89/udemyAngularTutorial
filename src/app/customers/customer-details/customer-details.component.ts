@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, EventEmitter, Output, OnDestroy, OnChanges } from '@angular/core';
 import { Customer, CustomerType } from '../model';
-import { MessageService } from '../../message.service';
+import { MessageService } from '../../core/message.service';
 
 
 @Component({
