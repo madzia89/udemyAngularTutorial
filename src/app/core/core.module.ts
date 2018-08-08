@@ -4,6 +4,7 @@ import { Config, CONFIG } from '../model';
 import { HTTP_INTERCEPTORS } from '../../../node_modules/@angular/common/http';
 import { ErrorHandlingInterceptor } from './error-handling.interceptor';
 import { NavbarComponent } from './navbar/navbar.component';
+import { RouterModule } from '../../../node_modules/@angular/router';
 
 
 const config: Config = {
@@ -12,6 +13,7 @@ const config: Config = {
 }
 
 @NgModule({
+  imports: [RouterModule],
   providers: [
     MessageService,
     { provide: CONFIG, useValue: config },

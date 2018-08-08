@@ -1,14 +1,14 @@
 <nav classs="navbar navbar-dark bg-dark">
   <div class="container-fluid">
     <ul class="nav ">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Klienci</a>
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
+        <a routerLink="customers" class="nav-link" href="#">Klienci</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Dodaj Klienta</a>
+      <li routerLinkActive="active" class="nav-item">
+        <a routerLink="customers/add"  class="nav-link" href="#">Dodaj Klienta</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Umowy</a>
+      <li routerLinkActive="active" class="nav-item">
+        <a routerLink="contracts" class="nav-link" href="#">Umowy</a>
       </li>
     </ul>
   </div>
