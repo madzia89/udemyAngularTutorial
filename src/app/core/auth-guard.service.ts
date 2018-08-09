@@ -12,7 +12,7 @@ export class AuthGuard implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot):
     boolean | Observable<boolean> | Promise<boolean> {
       console.log(state.url)
-      return false
+      return true
       //false sprawia że będący pod ochroną strażnika komponent nie będzie wyświetlony bez uprawnień
     // throw new Error("Method not implemented.")
   }

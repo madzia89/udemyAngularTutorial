@@ -3,14 +3,16 @@
     Dodaj klienta
   </div>
   <div class= "panel-body">
-    <form>
+    <form #customerForm="ngForm" (ngSubmit)="add(customerForm)">
+      <!-- ngSubmit="add" sprawia że po zatwierdzeniu formularza np. enterem wywoływana jest metoda add -->
+      <!-- jako argumet w add podajemy to co chcemy zapisać -->
       <div class="form-group">
         <label for="name">Nazwa klienta</label>
         <input type="text" class="form-control" id="name" [(ngModel)]="name" name="name" />
       </div>
       <div class="form-group">
         <label for="age">Wiek</label>
-        <input type="number" class="form-control" id="age" [(ngModel)]="age" name="age"/>
+        <input required type="number" class="form-control" id="age" [(ngModel)]="age" name="age"/>
       </div>
       <div class="form-group">
         <label for="type">Typ</label>
@@ -20,7 +22,9 @@
           <option [value]="CustomerType.VIP">VIP</option>
         </select>
       </div>
-      <button type="button" class="btn btn-default" (click)="add()">Dodaj</button>
+      <button type="button" class="btn btn-default" [disabled]="!customerForm.dirty" (click)="customerForm.resetForm()">Resetuj</button>
+      <button type="submit" class="btn btn-default" [disabled]="!customerForm.form.valid">Dodaj</button>
+      <!-- button submit pozwala na potwierdzenie formularza również w inny sposób niż przez click -->
     </form>
   </div>
 </div>
