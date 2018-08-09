@@ -2,17 +2,32 @@
   <div class="panel-heading">
     Dodaj klienta
   </div>
-  <div class= "panel-body">
+  <div class="panel-body">
     <form #customerForm="ngForm" (ngSubmit)="add(customerForm)">
       <!-- ngSubmit="add" sprawia że po zatwierdzeniu formularza np. enterem wywoływana jest metoda add -->
       <!-- jako argumet w add podajemy to co chcemy zapisać -->
       <div class="form-group">
         <label for="name">Nazwa klienta</label>
-        <input type="text" class="form-control" id="name" [(ngModel)]="name" name="name" />
+        <input required type="text" class="form-control" id="name" [(ngModel)]="name" name="name" #nameInput #nameModel="ngModel" />
+        <pre>{{nameInput.className}}</pre>
+        <!-- wypisuje dostępne klasy które są ndawane przez angulara podczas walidacji:
+        form-control,
+        ng-untouched, - gdy użytkownik nie umieścił w tym polu jescze kursora //ng-touched gdy kursor już był w tym polu
+        ng-dirty - gdy do pola zostały wprowadzone jakieś dane ale niekoniecznie są zwalidowane  a także gdy coś zostało już tam wprowadzone a nastęonie usunięte
+        ng-pristine, - gdy pole jest puste
+        ng-invalid  - jest nadawana gdy pole w formularzu nie spełnia wymagań walidacji a jest wymagane -->
+        <!-- nameModel=ngModel oznacza, że do tej zmiennej będzie przypisana dyrektywa ngModel powiązana z tym inputem -->
+        <div class="alert alert-danger" *ngIf="nameModel.invalid && nameModel.touched">
+          pole nazwa jest wymagane
+        </div>
+                <!-- powyższy div wyświetli się gdy zmienna z inputa w tym przypadku nameModel jest invalid i touched -->
       </div>
       <div class="form-group">
         <label for="age">Wiek</label>
-        <input required type="number" class="form-control" id="age" [(ngModel)]="age" name="age"/>
+        <input required type="number" class="form-control" id="age" [(ngModel)]="age" name="age"  #ageInput #ageModel="ngModel" />
+        <div class="alert alert-danger" *ngIf="ageModel.invalid && ageModel.touched">
+            pole wiek jest wymagane
+          </div>
       </div>
       <div class="form-group">
         <label for="type">Typ</label>
